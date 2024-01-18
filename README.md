@@ -17,7 +17,9 @@ Tokens) trong Spring Boot.
 
 Để chạy dự án này, bạn cần có:
 
-- JDK 1.8 trở lên
+- JDK 21
+- Spring Boot 3.0+
+- Spring Security 6.0+
 - Maven 3.2+
 
 ### Cài đặt
