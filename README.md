@@ -1,4 +1,4 @@
-# DemoJWT Project
+# DemoJWT Project - Chưa hoàn thiện!
 
 ## Giới thiệu
 
@@ -52,9 +52,10 @@ mvn spring-boot:run
 ### Đăng ký người dùng mới
 
 ```
-POST /api/auth/signup
+POST /api/v1/auth/register
 {
-"username": "newuser",
+"firstname": "abc",
+"lastname": "xyz",
 "email": "newuser@example.com",
 "password": "password"
 }
@@ -63,16 +64,16 @@ POST /api/auth/signup
 ### Đăng nhập và nhận JWT
 
 ```
-POST /api/auth/signin
+POST /api/v1/auth/authenticate
 {
-"username": "newuser",
+"email": "newuser@example.com",
 "password": "password"
 }
 ```
 
 Sau khi đăng nhập thành công, bạn sẽ nhận được một JWT trong phần body của response.
 
-### Truy cập tài nguyên được bảo vệ
+### ~~Truy cập tài nguyên được bảo vệ~~
 
 Sử dụng JWT nhận được để truy cập các tài nguyên được bảo vệ:
 
@@ -81,7 +82,7 @@ GET /api/protected
 Header: Authorization: Bearer <your_jwt_token_here>
 ```
 
-## Kiến trúc
+## ~~Kiến trúc~~
 
 Dự án này bao gồm các thành phần chính sau:
 
