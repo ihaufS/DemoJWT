@@ -18,9 +18,9 @@ Tokens) trong Spring Boot.
 Để chạy dự án này, bạn cần có:
 
 - JDK 21
-- Spring Boot 3.0+
-- Spring Security 6.0+
 - Maven 3.2+
+- Lombok
+- MapStruct
 
 ### Cài đặt
 
@@ -66,7 +66,7 @@ POST /api/v1/auth/register
 ### Đăng nhập và nhận JWT
 
 ```
-POST /api/v1/auth/authenticate
+POST /api/v1/auth/login
 {
 "email": "newuser@example.com",
 "password": "password"
@@ -75,22 +75,25 @@ POST /api/v1/auth/authenticate
 
 Sau khi đăng nhập thành công, bạn sẽ nhận được một JWT trong phần body của response.
 
-### ~~Truy cập tài nguyên được bảo vệ~~
+### Truy cập tài nguyên được bảo vệ
 
 Sử dụng JWT nhận được để truy cập các tài nguyên được bảo vệ:
 
 ```
-GET /api/protected
+GET /api/v1/demo-controller
 Header: Authorization: Bearer <your_jwt_token_here>
 ```
 
-## ~~Kiến trúc~~
+## Kiến trúc
 
 Dự án này bao gồm các thành phần chính sau:
 
-- `SecurityConfig`: Cấu hình bảo mật cho ứng dụng.
-- `AuthController`: Xử lý đăng ký và đăng nhập.
-- `JwtTokenProvider`: Tạo và xác thực JWT.
+- `ApplicationConfig, SecurityConfig, JwtAuthenticationFilter`: Cấu hình bảo mật cho ứng dụng.
+- `AuthenticationService`: Xử lý dữ liệu từ đăng ký và đăng nhận.
+- `JwtService`: Xử lý token JWT.
+- `AuthenticationController`: Xử lý đăng ký và đăng nhập.
+- `DemoController`: Xử lý demo sữ liệu được bảo vệ.
+- `DTO Class`: Các object chuyển tiếp từ User class(model)
 
 ## Bảo mật
 
