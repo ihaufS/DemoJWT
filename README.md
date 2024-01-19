@@ -89,7 +89,7 @@ Header: Authorization: Bearer <your_jwt_token_here>
 Dự án này bao gồm các thành phần chính sau:
 
 - `ApplicationConfig, SecurityConfig, JwtAuthenticationFilter`: Cấu hình bảo mật cho ứng dụng.
-- `AuthenticationService`: Xử lý dữ liệu từ đăng ký và đăng nhận.
+- `AuthenticationService`: Xử lý dữ liệu từ đăng ký và đăng nhập.
 - `JwtService`: Xử lý token JWT.
 - `AuthenticationController`: Xử lý đăng ký và đăng nhập.
 - `DemoController`: Xử lý demo sữ liệu được bảo vệ.
