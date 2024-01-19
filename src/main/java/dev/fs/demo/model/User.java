@@ -1,4 +1,4 @@
-package dev.fs.demo.entity;
+package dev.fs.demo.model;
 
 import dev.fs.demo.utils.Role;
 import jakarta.persistence.*;

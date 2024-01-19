@@ -1,4 +1,4 @@
-package dev.fs.demo.demo;
+package dev.fs.demo.controller.demo;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

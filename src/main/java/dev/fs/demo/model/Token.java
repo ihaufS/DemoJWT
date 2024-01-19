@@ -1,4 +1,4 @@
-package dev.fs.demo.auth;
+package dev.fs.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
+public class Token {
     private String token;
 }

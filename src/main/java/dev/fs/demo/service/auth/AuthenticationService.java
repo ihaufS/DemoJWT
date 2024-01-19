@@ -1,6 +1,9 @@
-package dev.fs.demo.auth;
+package dev.fs.demo.service.auth;
 
-import dev.fs.demo.entity.User;
+import dev.fs.demo.dto.LoginDTO;
+import dev.fs.demo.dto.RegisterDTO;
+import dev.fs.demo.model.Token;
+import dev.fs.demo.model.User;
 import dev.fs.demo.repository.UserRepository;
 import dev.fs.demo.service.JwtService;
 import dev.fs.demo.utils.Role;
@@ -16,10 +19,10 @@ public class AuthenticationService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public Token register(RegisterDTO request) {
         var user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -30,12 +33,12 @@ public class AuthenticationService {
         userRepository.save(user);
 
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
+        return Token.builder()
                 .token(jwtToken)
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public Token login(LoginDTO request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -44,7 +47,7 @@ public class AuthenticationService {
         );
         var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
+        return Token.builder()
                 .token(jwtToken)
                 .build();
     }
