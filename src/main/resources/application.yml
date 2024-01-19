@@ -12,4 +12,4 @@ spring:
       hibernate:
         format_sql: true
     database: sql_server
-    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    database-platform: org.hibernate.dialect.SQLServerDialect
